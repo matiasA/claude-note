@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizador de Tareas con Claude</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen py-6 flex flex-col justify-center sm:py-12">
+    <div id="app" class="relative py-3 sm:max-w-4xl sm:mx-auto w-full px-4">
+        <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+            <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Organizador de Tareas con Claude</h1>
+            <div id="api-key-container" class="mb-6">
+                <input type="password" id="api-key-input" placeholder="Ingresa tu clave de API de Claude" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2">
+                <button id="save-api-key" class="w-full bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition duration-300">Guardar Clave API</button>
+            </div>
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-2xl font-semibold mb-4">Tareas</h2>
+                    <div id="tasks-container" class="mb-6 h-96 overflow-y-auto border border-gray-300 rounded-md p-4">
+                        <!-- Las tareas se mostrarán aquí -->
+                    </div>
+                    <button id="add-task-button" class="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300 mb-4">Agregar Tarea</button>
+                    <div id="task-form" class="hidden">
+                        <input type="text" id="task-title" placeholder="Título de la tarea" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2">
+                        <input type="date" id="task-date" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2">
+                        <textarea id="task-description" placeholder="Descripción de la tarea" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2" rows="3"></textarea>
+                        <select id="task-priority" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2">
+                            <option value="baja">Baja</option>
+                            <option value="media" selected>Media</option>
+                            <option value="alta">Alta</option>
+                        </select>
+                        <select id="task-status" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2">
+                            <option value="pendiente" selected>Pendiente</option>
+                            <option value="en progreso">En Progreso</option>
+                            <option value="completada">Completada</option>
+                        </select>
+                        <button id="save-task" class="w-full bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition duration-300">Guardar Tarea</button>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-2xl font-semibold mb-4">Chat con Claude</h2>
+                    <div id="chat-container" class="mb-6 h-96 overflow-y-auto border border-gray-300 rounded-md p-4">
+                        <!-- El historial del chat se mostrará aquí -->
+                    </div>
+                    <div id="input-container" class="mb-6">
+                        <input type="text" id="user-input" placeholder="Ingresa una pregunta para Claude..." class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button id="send-message" class="mt-2 w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
